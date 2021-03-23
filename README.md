@@ -65,3 +65,12 @@ User.DisableUI() --Disable Core GUI / VR UI (Pointers, Teleporter, etc)
 ```User.DebugMode(Bool)``` Enables or disables debug mode. Allows you to see hands.
 
 ```User.DiabledUI()``` Disables Core GUI / VR UI (Pointers, Teleporter, etc)
+
+# Source
+
+
+
+# Credits
+
+* 50Alpha | Module creation
+* Arcental | Math for relative movement axis

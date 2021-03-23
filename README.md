@@ -4,7 +4,7 @@ EasyVR is a Lua module that allows developers to VR functionality within their g
 
 # Contents
 * [Example](#Example)
-* [Documentation](#Docuementation)
+* [Documentation](#Documentation)
 * [Source](#Source)
 * [Credits](#Credits)
 
@@ -41,4 +41,18 @@ User.DisableUI() --Disable Core GUI / VR UI (Pointers, Teleporter, etc)
 
 # Documentation
 
-```User.Create()``` Creates a VR User that includes Head, LeftHand and RightHand
+```User.Create()``` Creates the VR User that includes Head, LeftHand and RightHand
+```User.Run()``` Runs the VR User. Enables the ability to look around and move hands.
+```User.Stop()``` Stops the VR User. Disabled the ability to look around and move hands.
+
+```User.SetHandDistance(Float)``` Sets the hand distance (in studs) away from the head.
+```User.SetWalkSpeed(Float)``` Sets the WalkSpeed of the User.
+```User.SetThumbstickMovement(Bool)``` Enables or disables the ability to move with the left thumbstick.
+```User.SetMovementAxis(String <World> <Relative>)``` Which axis to move by. Example <World> is like flying around in VR.
+	
+```User.ButtonReleased(function(Button) --Release a button on the controllers
+	if Button == Enum.KeyCode.ButtonX then
+		print("Button Released")
+	end
+end)
+```Enables or disables the ability to move with the left thumbstick.

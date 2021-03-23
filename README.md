@@ -10,7 +10,7 @@ local User = require(script:WaitForChild("EasyVR")) --Require the module
 local TestHat = game.Workspace:WaitForChild("ValkyrieHelm")
 
 User.Create() --Create head and hands
---User.AttachInstance("Head", TestHat) --Attach a instance to User (Part, Union, MeshPart or Model)
+User.AttachInstance("Head", TestHat) --Attach a instance to User (Part, Union, MeshPart or Model)
 User.Run() --Run User (Hand movement and Head movement, etc)
 
 User.ButtonPressed(function(Button) --Click a button on the controllers

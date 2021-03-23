@@ -47,6 +47,7 @@ User.DisableUI() --Disable Core GUI / VR UI (Pointers, Teleporter, etc)
 
 ```User.Stop()``` Stops the VR User. Disables the ability to look around and move hands.
 
+```User.AttachInstance(String <Head> <LeftArm> <RightArm>, Instance)``` Attaches a instance to the requested User part.
 
 ```User.SetHandDistance(Float)``` Sets the hand distance (in studs) away from the head.
 

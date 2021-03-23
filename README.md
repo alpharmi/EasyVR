@@ -39,7 +39,7 @@ User.DebugMode(true) --Turns on debug mode (Allows you to see hands)
 User.DisableUI() --Disable Core GUI / VR UI (Pointers, Teleporter, etc)
 ```
 
-# 
+         
 
 ```User.Create()``` Creates the VR User that includes Head, LeftHand and RightHand
 

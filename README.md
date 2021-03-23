@@ -68,8 +68,8 @@ User.DisableUI() --Disable Core GUI / VR UI (Pointers, Teleporter, etc)
 
 # Source
 
-[Example RBXM Download](https://github.com/alphagithubp/EasyVR/raw/main/Example.rbxm)
-[Module Lua](https://github.com/alphagithubp/EasyVR/blob/main/Source.lua)
+* [Example RBXM Download](https://github.com/alphagithubp/EasyVR/raw/main/Example.rbxm)
+* [Module Lua](https://github.com/alphagithubp/EasyVR/blob/main/Source.lua)
 
 # Credits
 

@@ -39,7 +39,7 @@ User.DebugMode(true) --Turns on debug mode (Allows you to see hands)
 User.DisableUI() --Disable Core GUI / VR UI (Pointers, Teleporter, etc)
 ```
 
-         
+# Documentation
 
 ```User.Create()``` Creates the VR User that includes Head, LeftHand and RightHand
 
@@ -56,7 +56,7 @@ User.DisableUI() --Disable Core GUI / VR UI (Pointers, Teleporter, etc)
 
 ```User.SetMovementAxis(String <World> <Relative>)``` Which axis to move by. Example <World> is like flying around in VR.
 	
- # 
+         
 
 ```User.ButtonReleased(function(Button) --Release a button on the controllers
 	if Button == Enum.KeyCode.ButtonX then

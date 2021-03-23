@@ -56,7 +56,7 @@ User.DisableUI() --Disable Core GUI / VR UI (Pointers, Teleporter, etc)
 
 ```User.SetMovementAxis(String <World> <Relative>)``` Which axis to move by. Example <World> is like flying around in VR.
 	
-
+ 
 
 ```User.ButtonReleased(function(Button) --Release a button on the controllers
 	if Button == Enum.KeyCode.ButtonX then

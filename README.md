@@ -29,7 +29,7 @@ User.ButtonReleased(function(Button) --Release a button on the controllers
 		print("Button Released")
 	end
 end)
-User.SetMovementAxis("Gloabl") --What axis the User moves on
+User.SetMovementAxis("World") --What axis the User moves on
 User.SetThumbstickMovement(false) --Disable User movement by thumbstick
 User.ThumbstickMoved(function(Thumbstick, X, Y) --Return thumbstick and x, y positions when moved.
 	print(Thumbstick, X, Y)
@@ -45,7 +45,7 @@ User.DisableUI() --Disable Core GUI / VR UI (Pointers, Teleporter, etc)
 
 ```User.Run()``` Runs the VR User. Enables the ability to look around and move hands.
 
-```User.Stop()``` Stops the VR User. Disabled the ability to look around and move hands.
+```User.Stop()``` Stops the VR User. Disables the ability to look around and move hands.
 
 
 ```User.SetHandDistance(Float)``` Sets the hand distance (in studs) away from the head.
@@ -56,10 +56,12 @@ User.DisableUI() --Disable Core GUI / VR UI (Pointers, Teleporter, etc)
 
 ```User.SetMovementAxis(String <World> <Relative>)``` Which axis to move by. Example <World> is like flying around in VR.
 	
-```
-User.ButtonReleased(function(Button) --Release a button on the controllers
-	if Button == Enum.KeyCode.ButtonX then
-		print("Button Released")
-	end
-end)
-```Enables or disables the ability to move with the left thumbstick.
+```User.ButtonPressed(function(Button)``` Returns button that is pressed.
+
+```User.ButtonReleased(function(Button)``` Returns button that is released.
+
+```User.ThumbstickMoved(function(Thumbstick, X, Y)``` Returns thumbstick that was moved and X, Y Positions.
+
+```User.DebugMode(Bool)``` Enables or disables debug mode. Allows you to see hands.
+
+```User.DiabledUI()``` Disables Core GUI / VR UI (Pointers, Teleporter, etc)

@@ -5,6 +5,7 @@ EasyVR is a Lua module that allows developers to VR functionality within their g
 # Contents
 * [Example](#Example)
 * [Documentation](#Docuementation)
+* [Source](#Source)
 * [Credits](#Credits)
 
 # Example
@@ -40,4 +41,4 @@ User.DisableUI() --Disable Core GUI / VR UI (Pointers, Teleporter, etc)
 
 # Documentation
 
-
+```User.Create()``` Creates a VR User that includes Head, LeftHand and RightHand

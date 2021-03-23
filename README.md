@@ -2,6 +2,11 @@
 
 EasyVR is a Lua module that allows developers to VR functionality within their game simply without having to program the backend to get VR working. This module gives simple and advanced functionality thats completly customisable and user friendly.
 
+# Contents
+* [Example](#Example)
+* [Documentation](#Docuementation)
+* [Credits](#Credits)
+
 # Example
 
 ```
@@ -32,3 +37,7 @@ end)
 User.DebugMode(true) --Turns on debug mode (Allows you to see hands)
 User.DisableUI() --Disable Core GUI / VR UI (Pointers, Teleporter, etc)
 ```
+
+# Documentation
+
+

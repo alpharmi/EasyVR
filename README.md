@@ -63,6 +63,8 @@ User.DisableUI() --Disable Core GUI / VR UI (Pointers, Teleporter, etc)
 
 ```User.ThumbstickMoved(function(Thumbstick, X, Y)``` Returns thumbstick that was moved and X, Y Positions.
 
+```User.Rumble(String <LeftHand> <RightHand>, Float[Amount] <0-1>, Float[Time])
+
 ```User.DebugMode(Bool)``` Enables or disables debug mode. Allows you to see hands.
 
 ```User.DiabledUI()``` Disables Core GUI / VR UI (Pointers, Teleporter, etc)

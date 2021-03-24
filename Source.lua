@@ -16,7 +16,7 @@ local Running = false
 local HandDistance = 1
 local WalkSpeed = 2
 local ThumstickMovement = true
-local MovementAxis = "World"
+local MovementAxis = "Relative"
 local MovementDirection = Vector3.new(0, 0, 0)
 
 
@@ -178,12 +178,12 @@ end
 RunService.RenderStepped:Connect(function()
 	if Running then
 		local HeadCFrame = VRService:GetUserCFrame(Enum.UserCFrame.Head)
-		local LeftHandCFrame = HeadCFrame * VRService:GetUserCFrame(Enum.UserCFrame.LeftHand)
-		local RightHandCFrame = HeadCFrame * VRService:GetUserCFrame(Enum.UserCFrame.RightHand)
 		User.Head.CFrame = CFrame.new(User.Head.Position + MovementDirection) * CFrame.Angles(HeadCFrame:ToOrientation())
+		local LeftHandCFrame = User.Head.CFrame * VRService:GetUserCFrame(Enum.UserCFrame.LeftHand)
+		local RightHandCFrame = User.Head.CFrame * VRService:GetUserCFrame(Enum.UserCFrame.RightHand)
 		Camera.CFrame = User.Head.CFrame
-		TweenService:Create(User.LeftHand, TweenInfo.new(0.1), {CFrame = LeftHandCFrame + User.Head.Position + (LeftHandCFrame.lookVector * HandDistance)}):Play()
-		User.RightHand.CFrame = RightHandCFrame + User.Head.Position + (RightHandCFrame.lookVector * HandDistance)
+		TweenService:Create(User.LeftHand, TweenInfo.new(0.1), {CFrame = LeftHandCFrame + (LeftHandCFrame.lookVector * HandDistance)}):Play()
+		User.RightHand.CFrame = RightHandCFrame + (RightHandCFrame.lookVector * HandDistance)
 	end
 end)
 
@@ -193,9 +193,9 @@ UserInputService.InputChanged:Connect(function(Input, GameProcessed)
 			if MovementAxis == "World" then
 				MovementDirection = Vector3.new(Input.Position.X, Input.Position.Y, Input.Position.X) * WalkSpeed / 10
 			else
-				local WalkSpeedDirection = Vector3.new(1, 0, 1) * WalkSpeed / 10
+				local WalkSpeedDirection = Vector3.new(1 * WalkSpeed / 10, 0, 1* WalkSpeed / 10)
 				local MovementDirectionMath = (Input.Position.X * User.Head.CFrame.rightVector) + (Input.Position.Y * User.Head.CFrame.lookVector) * WalkSpeedDirection  --Math by Arcental
-				MovementDirection = Vector3.new(MovementDirectionMath.X, User.Head.Position.Y, MovementDirectionMath.Z)
+				MovementDirection = -(Vector3.new(MovementDirectionMath.X, User.Head.Position.Y, MovementDirectionMath.Z))
 			end
 		end
 	end

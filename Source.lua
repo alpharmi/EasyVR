@@ -3,6 +3,7 @@
 local VRService = game:GetService("VRService")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
 
 --Variables
 
@@ -59,6 +60,9 @@ VR.AttachInstance = function(Part, RequestedInstance, Offset)
 			Weld.Parent = Part
 			Weld.Part0 = Part
 			Weld.Part1 = UserPart
+			if Offset ~= nil then
+				Weld.C0 = Offset
+			end
 			Part.Anchored = false
 		elseif RequestedInstance:IsA("Model") then
 			local Model = RequestedInstance
@@ -78,6 +82,9 @@ VR.AttachInstance = function(Part, RequestedInstance, Offset)
 			Weld.Parent = Model.PrimaryPart
 			Weld.Part0 = Model.PrimaryPart
 			Weld.Part1 = UserPart
+			if Offset ~= nil then
+				Weld.C0 = Offset
+			end
 		elseif RequestedInstance:IsA("Accessory") then
 			local Handle = RequestedInstance:FindFirstChildOfClass("Part")
 			local Weld = Instance.new("Weld")
@@ -123,7 +130,6 @@ VR.Create = function()
 end
 VR.ButtonPressed = function(PassedFunction)
 	UserInputService.InputBegan:Connect(function(Input, GameProcessed)
-		print(Input.KeyCode)
 		if not GameProcessed then
 			PassedFunction(Input.KeyCode)
 		end
@@ -176,7 +182,7 @@ RunService.RenderStepped:Connect(function()
 		local RightHandCFrame = HeadCFrame * VRService:GetUserCFrame(Enum.UserCFrame.RightHand)
 		User.Head.CFrame = CFrame.new(User.Head.Position + MovementDirection) * CFrame.Angles(HeadCFrame:ToOrientation())
 		Camera.CFrame = User.Head.CFrame
-		User.LeftHand.CFrame = LeftHandCFrame + User.Head.Position + (LeftHandCFrame.lookVector * HandDistance)
+		TweenService:Create(User.LeftHand, TweenInfo.new(0.1), {CFrame = LeftHandCFrame + User.Head.Position + (LeftHandCFrame.lookVector * HandDistance)}):Play()
 		User.RightHand.CFrame = RightHandCFrame + User.Head.Position + (RightHandCFrame.lookVector * HandDistance)
 	end
 end)

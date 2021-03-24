@@ -182,7 +182,7 @@ RunService.RenderStepped:Connect(function()
 		local LeftHandCFrame = User.Head.CFrame * VRService:GetUserCFrame(Enum.UserCFrame.LeftHand)
 		local RightHandCFrame = User.Head.CFrame * VRService:GetUserCFrame(Enum.UserCFrame.RightHand)
 		Camera.CFrame = User.Head.CFrame
-		TweenService:Create(User.LeftHand, TweenInfo.new(0.1), {CFrame = LeftHandCFrame + (LeftHandCFrame.lookVector * HandDistance)}):Play()
+		User.LeftHand.CFrame = LeftHandCFrame + (LeftHandCFrame.lookVector * HandDistance)
 		User.RightHand.CFrame = RightHandCFrame + (RightHandCFrame.lookVector * HandDistance)
 	end
 end)
@@ -193,8 +193,7 @@ UserInputService.InputChanged:Connect(function(Input, GameProcessed)
 			if MovementAxis == "World" then
 				MovementDirection = Vector3.new(Input.Position.X, Input.Position.Y, Input.Position.X) * WalkSpeed / 10
 			else
-				local WalkSpeedDirection = Vector3.new(1 * WalkSpeed / 10, 0, 1* WalkSpeed / 10)
-				local MovementDirectionMath = (Input.Position.X * User.Head.CFrame.rightVector) + (Input.Position.Y * User.Head.CFrame.lookVector) * WalkSpeedDirection  --Math by Arcental
+				local MovementDirectionMath = (Input.Position.X * User.Head.CFrame.rightVector  / WalkSpeed) + (Input.Position.Y * User.Head.CFrame.lookVector  / WalkSpeed)  --Math by Arcental
 				MovementDirection = -(Vector3.new(MovementDirectionMath.X, User.Head.Position.Y, MovementDirectionMath.Z))
 			end
 		end

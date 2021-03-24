@@ -29,7 +29,7 @@ User.ButtonReleased(function(Button) --Release a button on the controllers
 		print("Button Released")
 	end
 end)
-User.SetMovementAxis("World") --What axis the User moves on
+User.SetMovementAxis("Relative") --What axis the User moves on
 User.SetThumbstickMovement(false) --Disable User movement by thumbstick
 User.ThumbstickMoved(function(Thumbstick, X, Y) --Return thumbstick and x, y positions when moved.
 	print(Thumbstick, X, Y)

@@ -4,6 +4,7 @@ local VRService = game:GetService("VRService")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
+local HapticService = game:GetService("HapticService")
 
 --Variables
 
@@ -43,6 +44,17 @@ VR.SetMovementAxis = function(String)
 		MovementAxis = String
 	else
 		return print("Invalid movement aixs.")
+	end
+end
+VR.Rumble = function(Hand, Amount, Time)
+	if Hand == "LeftHand" then
+		HapticService:SetMotor(Enum.UserInputType.Gamepad1, Enum.VibrationMotor.LeftHand, Amount)
+		wait(Time)
+		HapticService:SetMotor(Enum.UserInputType.Gamepad1, Enum.VibrationMotor.LeftHand, 0)
+	elseif Hand == "RightHand" then
+		HapticService:SetMotor(Enum.UserInputType.Gamepad2, Enum.VibrationMotor.RightHand, Amount)
+		wait(Time)
+		HapticService:SetMotor(Enum.UserInputType.Gamepad2, Enum.VibrationMotor.RightHand, 0)
 	end
 end
 VR.AttachInstance = function(Part, RequestedInstance, Offset)
